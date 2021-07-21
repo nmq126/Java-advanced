@@ -1,13 +1,13 @@
-package com.t2012e.util;
+package com.t2012e.hashmap;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DateTimeUtil {
+public class DateTimeUtilHashMap {
 
-    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     public static Date parseDateFromString(String strDateTime){
         try {

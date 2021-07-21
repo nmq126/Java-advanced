@@ -1,7 +1,5 @@
 package com.t2012e.hashmap;
 
-import com.t2012e.util.DateTimeUtil;
-
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,8 +9,8 @@ public class DemoHashMap {
         Map<String, Teacher> teacherMap = new HashMap<>();
         String regex = "(^GV.+)\\|(.+)\\|(.+)\\|(.+)";
         Pattern pattern = Pattern.compile(regex);
-        String s1 = "Ma giang vien | Ten giang vien | Ngay | So luong\n" +
-                "----------------------------------\n" +
+        String s1 = "Mã giảng viên | Tên giảng viên | Ngày | Số lượng bánh ngọt\n" +
+                "_______________________________________________________________\n" +
                 "GV001       |  Nguyễn Tuân  |  06/05/2019 |    1\n" +
                 "GV002       |  Đặng Kim Thi  |  06/05/2019 |    2\n" +
                 "GV001       |  Nguyen Tuân  |  07/05/2019 |    2\n" +
@@ -32,7 +30,7 @@ public class DemoHashMap {
                 Teacher newTeacher = new Teacher();
                 newTeacher.setRollNumber(m.group(1).trim());
                 newTeacher.setFullName(m.group(2).trim());
-                newTeacher.setDate(DateTimeUtil.parseDateFromString(m.group(3).trim()));
+                newTeacher.setDate(DateTimeUtilHashMap.parseDateFromString(m.group(3).trim()));
                 newTeacher.setQuantity(Integer.parseInt(m.group(4).trim()));
                 if (teacherMap.containsKey(newTeacher.getRollNumber())) {
                     Teacher teacherDuplicate = teacherMap.get(newTeacher.getRollNumber());
