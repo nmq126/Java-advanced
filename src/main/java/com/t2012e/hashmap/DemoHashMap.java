@@ -37,15 +37,14 @@ public class DemoHashMap {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        DemoHashMap.sortTeacher(teacherMap);
+        DemoHashMap.printSortedTeacher(teacherMap);
     }
 
-    private static ArrayList sortTeacher(Map map) {
+    private static void printSortedTeacher(Map map) {
         ArrayList<Teacher> teacherArrayList = new ArrayList<Teacher>(map.values());
         Collections.sort(teacherArrayList, new TeacherComparator());
         for (int i = 0; i < 3; i++) {
             System.out.println(teacherArrayList.get(i).toString());
         }
-        return teacherArrayList;
     }
 }
