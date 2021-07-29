@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 public class DemoHashMap {
     public static void main(String[] args) {
+        double start = System.currentTimeMillis();
         Map<String, Teacher> teacherMap = new HashMap<>();
         String regex = "(^GV.+)\\|(.+)\\|(.+)\\|(.+)";
         Pattern pattern = Pattern.compile(regex);
@@ -30,6 +31,19 @@ public class DemoHashMap {
                     } else {
                         teacherMap.put(newTeacher.getRollNumber(), newTeacher);
                     }
+//                if (m.find()) {
+//
+//                    if (teacherMap.containsKey(m.group(1).trim())) {
+//                        Teacher teacherDuplicate = teacherMap.get(m.group(1).trim());
+//                        teacherDuplicate.setQuantity(teacherDuplicate.getQuantity() + Integer.parseInt(m.group(4).trim()));
+//                    } else {
+//                        Teacher newTeacher = new Teacher();
+//                        newTeacher.setRollNumber(m.group(1).trim());
+//                        newTeacher.setFullName(m.group(2).trim());
+//                        newTeacher.setDate(DateTimeUtilHashMap.parseDateFromString(m.group(3).trim()));
+//                        newTeacher.setQuantity(Integer.parseInt(m.group(4).trim()));
+//                        teacherMap.put(newTeacher.getRollNumber(), newTeacher);
+//                    }
                 }
             }
             reader.close();
@@ -38,6 +52,8 @@ public class DemoHashMap {
             e.printStackTrace();
         }
         DemoHashMap.printSortedTeacher(teacherMap);
+        double end = System.currentTimeMillis();
+        System.out.println(end - start);
     }
 
     private static void printSortedTeacher(Map map) {
